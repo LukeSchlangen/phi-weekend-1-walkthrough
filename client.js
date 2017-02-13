@@ -24,12 +24,13 @@ $(document).ready(function(){ // waits for DOM to completely load
     var previousMonthlyExpenses = $('#monthlyExpenses').text();
     var totalMonthlyExpenses = parseFloat(previousMonthlyExpenses) + newEmployeeMonthlyExpenses;
     $('#monthlyExpenses').text(totalMonthlyExpenses);
+
+    // Clear out input boxes
+    $('.employeeFormInput').val('');
   });
 
-
+  // Adding listener for clicking delete employee buttons
   $('#employeeTableBody').on('click', '.deleteEmployeeButton', function(){
-    console.log('Delete Button was clicked!');
-    console.log($(this));
-    $(this).parent().parent().remove();
+    $(this).parent().parent().remove(); // selecting the row that I want to delete
   });
 });
